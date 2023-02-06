@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Rock - Paper - Scissors <br> Game </h1>
+
+    <div id="container">
+
+        <div class="scoreTotal">Player <span id="playerScore" class="score">0</span> VS <span id="computerScore" class="score">0</span> Computer</div>
+        <div id="winner" class="theWinner"></div>
+
+        <div id="player">
+            <div class="card">
+                <figcaption>Rock</figcaption>
+                <div id="rock" class="box rock"></div>
+            </div>
+            <div class="card">
+                <figcaption>Paper</figcaption>
+                <div id="paper" class="box paper"></div>
+            </div>
+            
+            <div class="card">
+                <figcaption>Scissors</figcaption>
+                <div id="scissors" class="box scissors"></div>
+            </div>
+            
+        </div>
+        <div>
+             <button id="select" onclick="startGame()">Computer's Turn</button>
+        </div>
+       
+  
+        <div id ="computer" >
+            <div class="box computerChoice selected"></div>
+        </div>
+
+    </div>
+
+    
+
+    <script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,153 @@
+@font-face {
+    font-family: mickey;
+    src: url(minnie.ttf);
+  }
+
+body {
+    background-color: rgba(255, 255, 0, 0.806);
+    text-align: center;
+}
+
+#container {
+    display: flex;
+    flex-direction: column;;
+}
+
+h1 {
+    margin-top: 20px;
+    font-family: mickey;
+    font-size:60px;
+    text-align: center;
+    color: red;
+    background-color: black;
+    padding: 10px;
+    border-radius: 30%;
+}
+
+.box {
+    width: 150px; 
+    height: 150px;
+    border: 10px black solid;
+    background-color: #f1f1f1f6;
+    font-size: 30px;
+    text-align: center;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+   
+}
+
+.card {
+    margin: 30px;
+    transition: transform 0.2s;
+   
+}
+
+.card:hover {
+    transform: scale(1.2);
+}
+
+.selected {
+    transform: scale(1.2);
+}
+
+.score {
+    font-weight: bold;
+    border: 2px solid red;
+    padding: 5px;
+    color: black;
+    font-family: mickey
+}
+.scoreTotal {
+    font-size: 20px;
+    color: red;
+}    
+
+.theWinner {
+    padding: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 20px;
+    font-weight: bolder;
+    text-align: center;
+    color: black;
+    font-family: fantasy;
+    background-color: white;
+}
+
+figcaption {
+    background-color: black;
+    color: white;
+    font-style: italic;
+    padding: 1px;
+    text-align: center;
+  }
+
+#rock {
+    background-image: url(./rock.jpeg);
+  } 
+
+#paper {   
+    background-image: url(./paper.jpeg);
+}
+
+#scissors {
+    background-image: url(./scissors.jpeg);
+}  
+
+#player {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+#computer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    position: relative;
+}
+
+.slideshow {
+    animation-name: images;
+    animation-duration: 0.75s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes images {
+   33.33%{background-image: url(./scissors.jpeg);}
+    66.66% {background-image: url(./paper.jpeg);}
+   100%{background-image: url(./rock.jpeg);}
+}
+
+
+
+#select {
+    font-size: large;
+    text-align: center;
+    align-items: center;
+    padding: 10px;
+    background-color: white;
+    font-family: mickey;
+    font-weight: bold;
+    border: 5px red solid;
+    border-radius: 30%;
+}
+
+
+
+/* id="container">
+<div id="player">Player
+    <div class="rock">Rock</div>
+    <div class="paper">Paper</div>
+    <div class="scissors">Scissors</div>
+</div>
+
+<button id="select">Select</button>
+
+<div id="computer">Computer
+    <div class="computerChoice">Computer's Choice</div>
+</div>    */
