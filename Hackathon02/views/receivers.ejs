@@ -1,0 +1,112 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('partials/head'); %>
+</head>
+
+<body>
+    <%- include('partials/header'); %>
+    <div class="container-fluid">
+        <h1>RECEIVERS</h1>
+
+        
+        <form action="" id="form" >
+            <div class="row g-3">
+                <div class="col-md-3">
+                    <label for="name" class="form-label" >Name: </label>
+                    <input type="text" id="name" name="name" class="form-control" > 
+                </div>
+            </div>
+            <div class="row  g-3">
+                <div class="col-md-3">
+                    <label for="address" class="form-label">Address:</label>
+                    <input type="text" id="address" name="address" class="form-control" > 
+                </div>
+            </div>
+            <div class="row g-3">
+                <div class="col-md-3 ">
+    
+                    <button type="button" class="btn btn-warning" onclick="addReceiver()">Add</button>
+                </div>
+            </div>
+        </div>
+    
+        </form>
+
+
+        <div class="row">
+            <div class="col-md-6">
+                <%  if (receivers.length != 0) { %>
+                <ul class="list-group">
+                <% receivers.forEach(item => { %>
+                
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <%= item.name %>
+                        <span class="badge bg-warning rounded-pill"><%=item.address %></span>
+                        <a href=<%= `/baskets/${item.id}`%>>View basket</a>
+                         <button type="button" class="btn btn-warning" onclick="deleteReceiver(<%=item.id%>)">Delete</button>
+                    </li>
+                <% }) %>
+                </ul>
+                <% } else { %>
+                <div class="col-md-12">
+                    <h4>No receivers</h4>
+                </div>
+                <% } %>
+            </div>
+        </div>
+   
+    <script src="/script.js" type="javascript"></script>
+    </div>
+     <%- include('partials/footer.ejs'); %>
+
+     <script>
+
+const deleteReceiver = async (id_receiver) =>{
+            let response = await fetch(`http://localhost:5002/api/receivers/remove/${id_receiver}`, {
+                method: "DELETE",
+                headers: {
+                "Content-Type": "application/json",
+                }         
+            })
+            let json = await response.json()
+
+           location.reload()
+        }
+
+
+const addReceiver = async (id) => {
+
+try {
+
+    const form = document.getElementById("form")
+    const formData = new FormData(form)
+    const data = {
+        name : formData.get('name'),
+        address: formData.get('address'),
+    }
+
+    console.log(data)
+    let response = await fetch(`http://localhost:5002/api/receivers/add`, {
+        method: "POST", 
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+
+    location.reload()
+
+
+} catch (error) {
+    console.log(error);
+}
+    
+}
+        </script>
+</body>
+
+</html>
